@@ -1,0 +1,11 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "Count the users an outage hit, in fixed memory"
+summary: "Generates a seeded access log with a planted outage, then estimates how many distinct users, clients or endpoints any slice of it touched with a HyperLogLog sketch of 2^p registers, so you can size an incident's blast radius without storing every user id."
+highlights:
+  - "Every estimate is recomputed by the verifier from the same fully documented HyperLogLog, so it is one exact number"
+  - "Filter by status class and endpoint to count the users who actually got errors"
+  - "Works offline: the same seed always gives the same log, byte for byte"
+steps:
+  - "Generate an access log from a seed and a request count"
+  - "Pick a column, a status class, an endpoint and a precision"
+  - "Read the distinct count, or ask the agent which endpoint hurt the most users"
